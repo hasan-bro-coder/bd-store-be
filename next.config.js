@@ -8,6 +8,7 @@ checkEnvVariables()
 const S3_HOSTNAME = process.env.MEDUSA_CLOUD_S3_HOSTNAME
 const S3_PATHNAME = process.env.MEDUSA_CLOUD_S3_PATHNAME
 
+
 /**
  * @type {import('next').NextConfig}
  */
@@ -41,6 +42,11 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "medusa-server-testing.s3.us-east-1.amazonaws.com",
+      },
+      {
+        protocol: 'https',
+        hostname: process.env.SUPABASE_ID+'.supabase.co',
+        pathname: '/storage/v1/object/public/**',
       },
       ...(S3_HOSTNAME && S3_PATHNAME
         ? [

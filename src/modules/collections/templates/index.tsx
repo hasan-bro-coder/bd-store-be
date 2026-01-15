@@ -10,11 +10,13 @@ export default function CollectionTemplate({
   sortBy,
   collection,
   page,
+  q,
   countryCode,
 }: {
   sortBy?: SortOptions
   collection: HttpTypes.StoreCollection
   page?: string
+  q?: string
   countryCode: string
 }) {
   const pageNumber = page ? parseInt(page) : 1
@@ -38,6 +40,7 @@ export default function CollectionTemplate({
             sortBy={sort}
             page={pageNumber}
             collectionId={collection.id}
+            q={q}
             countryCode={countryCode}
           />
         </Suspense>
